@@ -265,3 +265,157 @@ blockquote { margin: 24px 0 0; padding-left: 20px; border-left: 3px solid var(--
   .bio-hero img, .bio-photo-grid img { min-height: 260px; }
   .bio-quote-card, .bio-text-card, .bio-final { padding: 26px; }
 }
+
+/* --- FIXES: About Me readability + full image visibility --- */
+.about-section .bio-grid,
+.about-section .bio-final,
+.about-section .bio-hero {
+  align-items: start;
+}
+
+.about-section .bio-text-card,
+.about-section .bio-final,
+.about-section .bio-quote-card {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.97), rgba(10, 10, 10, 0.96));
+  backdrop-filter: blur(8px);
+}
+
+.about-section .bio-photo-grid,
+.about-section .bio-hero > img {
+  position: relative;
+  z-index: 1;
+}
+
+.about-section .bio-hero img,
+.about-section .bio-photo-grid img {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+  background: #050505;
+}
+
+.about-section .bio-photo-grid img {
+  align-self: start;
+}
+
+/* --- OPENING ANIMATIONS: premium intro movement --- */
+.hero-bg {
+  animation: heroGlow 12s ease-in-out infinite alternate;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(243, 200, 81, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::before {
+  width: 520px;
+  height: 520px;
+  right: -170px;
+  top: 95px;
+  box-shadow: 0 0 70px rgba(243, 200, 81, 0.10);
+  animation: slowSpin 26s linear infinite, softPulse 5s ease-in-out infinite;
+}
+
+.hero::after {
+  width: 260px;
+  height: 260px;
+  left: -95px;
+  bottom: 115px;
+  border-color: rgba(71, 209, 166, 0.18);
+  box-shadow: 0 0 60px rgba(71, 209, 166, 0.08);
+  animation: slowSpinReverse 22s linear infinite, softPulse 6s ease-in-out infinite;
+}
+
+.hero h1 {
+  background: linear-gradient(90deg, #fff7d7, var(--gold), #ffffff, var(--gold));
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldShimmer 7s ease-in-out infinite;
+}
+
+.hero-card {
+  animation: floatCard 7s ease-in-out infinite;
+}
+
+.hero-card img {
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.hero-card:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.brand-mark {
+  animation: brandPulse 3.8s ease-in-out infinite;
+}
+
+.hero .btn-primary {
+  animation: buttonPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes heroGlow {
+  0% { filter: brightness(1) saturate(1); transform: scale(1); }
+  100% { filter: brightness(1.16) saturate(1.08); transform: scale(1.015); }
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.04); }
+}
+
+@keyframes slowSpinReverse {
+  from { transform: rotate(360deg) scale(1); }
+  to { transform: rotate(0deg) scale(1.05); }
+}
+
+@keyframes softPulse {
+  0%, 100% { opacity: 0.42; }
+  50% { opacity: 0.82; }
+}
+
+@keyframes goldShimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes brandPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(243, 200, 81, 0.22); }
+  50% { box-shadow: 0 0 42px rgba(243, 200, 81, 0.42); }
+}
+
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 10px 32px rgba(243, 200, 81, 0.22); }
+  50% { box-shadow: 0 12px 46px rgba(243, 200, 81, 0.40); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero::before { width: 330px; height: 330px; right: -160px; top: 150px; }
+  .hero::after { width: 190px; height: 190px; left: -120px; bottom: 90px; }
+  .hero-card { animation: none; }
+}
