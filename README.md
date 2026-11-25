@@ -12,7 +12,7 @@ This keeps ZenMillionaires’ existing black-and-gold identity, free class, free
 - Existing members receive a “Member sign in” action. New members receive a “Start registration” action and the current instruction to select “Don’t have an account? Register.”
 - Those two general entry actions use the verified **https://cashoutai.app/** root. The existing contact/footer app links use that same destination.
 - The owner-approved membership cards show **1 month — $99, 6 months — $499, and Lifetime — $899 (USD)**. Plan actions use the coordinated app routes `?join=monthly`, `?join=six_months`, and `?join=lifetime`. The matching app release must deploy before these marketing links are published.
-- Plan entry starts with the member's app account. Payment runs through Square; the page says confirmation is required before access is activated. It does not promise instant activation or recurring charges.
+- Plan entry starts with the member's app account. Each Square purchase is one-time with no automatic renewal. The page explains that the team reviews payment, approves access, and sends a welcome email. It asks members to use their account email at checkout and does not promise instant activation.
 - The free educational resources remain separate from app membership.
 - The page explains the phone / full-screen big-screen direction as part of the upcoming release.
 - Mobile navigation now has sufficient room for the additional entry, a 44-pixel target, Escape-to-close, accurate expanded state, and a no-JavaScript fallback. Keyboard focus and a skip link are included. Content stays visible when reveal animation or JavaScript is unavailable.
@@ -75,7 +75,7 @@ Do not add “live real-time quotes” merely because a provider has a real-time
 
 The $100 is a virtual simulation balance, not cash, a reward, a deposit, or something redeemable. The new page says so next to the feature description.
 
-Square is now the selected processor. The app implementation draft adds restricted billing authentication and a server-created checkout bound to the existing member/order, but production configuration and payment verification have not been completed. When automatic checkout is unavailable, the supplied reusable Square links remain an explicitly labeled manual-review fallback. Registration alone is not a purchase or activation. New trials remain disabled; existing memberships and trial dates are preserved.
+Square is the selected processor, and the owner explicitly chose one-time purchases with manual approval. The app draft uses restricted billing authentication and the supplied reusable Square links as the primary payment path. The owner checks the Square payment, matches the member, records the receipt and purchased plan, then approves access and starts the welcome-email process. Registration alone is not payment or activation. New trials remain disabled; existing memberships and trial dates are preserved. The optional automatic integration remains dormant. No Square API credential, webhook, or billing worker is required for this manual workflow.
 
 ## Required inputs for a Black Friday purchase path
 
@@ -85,10 +85,10 @@ The page can be reviewed now. A concrete promotion needs these business decision
 | --- | --- |
 | Offer | Base options are 1 month, 6 months, or Lifetime; confirm eligibility for any separate promotion |
 | Price | Base USD prices are $99, $499, and $899; any promotional amount and taxes / fees presentation still need confirmation |
-| Discount | Percentage or fixed amount; one payment, first term, or recurring; exact duration |
+| Discount | Separately approved percentage or fixed amount on a one-time purchase; exact duration |
 | Timing | Start and end with timezone; no inferred deadline or artificial countdown |
 | Eligibility | New members, existing members, reactivations, or a defined combination |
-| Renewal | Renewal date/rate, automatic renewal, term and cancellation behavior |
+| Renewal | Confirmed one-time purchases with no automatic renewal; another fixed term needs a new purchase |
 | Existing members | Upgrade, credit, extension, duplicate-purchase and plan-change policy |
 | Coupon | Approved code, redemption limits, whether stacking is permitted |
 | Customer terms | Cancellation/refund policy, support contact, membership conditions |
@@ -97,13 +97,13 @@ The page can be reviewed now. A concrete promotion needs these business decision
 
 ## Square implementation and release requirements
 
-The selected processor and prices are recorded in the app project's `docs/payment-access-plan.md` and `docs/square-payments-rollout.md`. The implementation draft uses one-time purchases for the supplied terms, not subscriptions. No payment account was accessed or charged in this website work.
+The selected processor, one-time terms, and manual approval process are recorded in the app project's `docs/payment-access-plan.md` and `docs/square-payments-rollout.md`. No payment account was accessed or charged in this website work.
 
 1. Deploy the coordinated app plan-entry routes and billing endpoints before publishing the website's plan buttons.
-2. Configure the explicit Square enable flag, sandbox/production environment, server credential, expected merchant/location, webhook key, exact notification URL, and verified return URL. The public static links alone do not enable automatic activation.
-3. Verify the account-bound API checkout and signed event path: re-read Square's payment/order, require the correct completed USD payment, and apply its grant once.
-4. Exercise pending, failure, duplicate, interrupted, unmatched, and refund cases. Preserve independent legacy/lifetime access. Refund policy and any future recurring billing must be defined separately.
-5. Keep sandbox transactions test-only. They must never activate real member access. Use the provider's test environment and an isolated app database before the live release.
+2. Keep the app in `MEMBERSHIP_APPROVAL_MODE=manual` (the default). The supplied Square links work without API credentials, webhook setup, or the optional reconciliation worker. Confirm the live links retain the owner's one-time terms.
+3. Verify the owner can match a paid Square record to the existing member and approve the actual purchased plan with its receipt/reference. A one- or six-month term starts at approval or extends a later current paid-through date; Lifetime has no expiry.
+4. Exercise pending, rejected review, repeated receipt, conflicting assignment, renewal, and expired-access cases in an isolated database. Preserve independent legacy/lifetime access. Refunds and corrections remain owner-reviewed; do not invent an automatic revocation policy.
+5. Verify the existing welcome-email service using a non-production recipient during the deployment rehearsal. A repeated approval must not send twice; failed/unavailable email must leave the valid membership approved. Service acceptance is not proof of inbox delivery. No email is sent by this website work.
 6. Keep upcoming-feature wording until the redesign is deployed. Do not add a sale badge, countdown, discount, or “activate instantly” promise without approved terms and observed behavior.
 
 The app’s single-active-session policy should continue to apply to purchased memberships. This policy and exact signup behavior belong in the product flow, not as a substitute for payment confirmation.
@@ -112,8 +112,8 @@ The app’s single-active-session policy should continue to apply to purchased m
 
 - Exact hashes confirmed for the complete original 20-file baseline.
 - Current structural checks passed: no duplicate IDs, all 14 internal anchors and 16 local assets resolve, and JavaScript syntax is valid. The seven app destinations include the exact three coordinated plan-entry routes and four root app links. All 13 original images remain byte-identical to the baseline.
-- The current pricing section passed unpublished visual review at 960-pixel desktop and 390-pixel mobile iframe widths (usable content widths of 945 and 375 pixels). All three membership cards fit; they stack on the phone without document-level horizontal overflow. Each mobile plan button is 297 by 50 pixels and carries the correct `?join` intent. The black-and-gold design remains consistent with the existing page.
-- The earlier App section review also covered mobile menu/navigation and both account-entry buttons. Current visual review confirms the pricing layout and entry destinations; it does not verify a live Square checkout or payment settlement.
+- The current one-time/manual-approval copy passed unpublished visual review at 960-pixel desktop and 390-pixel mobile iframe widths (usable content widths of 945 and 375 pixels). The three price cards, manual-review explanation, same-email instruction, and existing/new-account entry copy fit both layouts without document-level horizontal overflow. The exact three `?join` destinations remain unchanged.
+- The earlier App section review also covered mobile menu/navigation and both account-entry buttons. Visual review checks page layout and entry destinations; it does not verify live Square payment, manual membership approval, or welcome-email delivery.
 - The CSS keeps content visible during the reveal transition; the transform animation remains.
-- The earlier three-file patch applied cleanly and reproduced the prior draft byte for byte. Regenerate and independently apply the final patch after the current pricing and route edits are frozen.
+- Source changes are reviewed through the existing GitHub draft pull request. Generated patches, local QA fixtures, and build output are not part of the published source changes.
 - Review used an unpublished local preview. The review branch exists; the website has not been merged or deployed. Page review verifies marketing content and entry links, not live Square settlement or membership activation.
