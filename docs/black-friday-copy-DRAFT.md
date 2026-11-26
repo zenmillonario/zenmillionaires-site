@@ -1,10 +1,10 @@
 # DRAFT — CashOutAI practice event and Black Friday copy
 
-**Internal working copy. Not published, sent, or scheduled. The free event is approved; this document does not enable it. No separate discount or coupon is configured.**
+**Internal working copy. Not published, sent, or scheduled. The free event is approved; this document does not enable it. The owner confirmed that the supplied payment links already charge discounted prices. No coupon or discount deadline is configured.**
 
 The owner approved an email-verified free practice event that can open as soon as the matching app update is ready, including before Friday. Everyone shares access through **Monday, November 30, 2026 at 11:59 p.m. Eastern**. The exact cutoff is **Tuesday, December 1 at 12:00 a.m. America/New_York** (`2026-12-01T05:00:00Z`). Late enrollment does not extend access.
 
-The base memberships remain **1 month — $99, 6 months — $499, and Lifetime — $899 (USD)**. Each is a one-time Square purchase with manual paid-access approval and no automatic renewal. These prices are not described as discounts. The free-event cutoff does not change the prices or close paid registration.
+Current discounted memberships are **1 month — $99 (regular $199), 6 months — $499 (regular $999), and Lifetime — $899 (regular $2,499), all USD**. Savings are **$100, $500, and $1,600**. Each is a one-time Square purchase with manual paid-access approval and no automatic renewal. The same existing links already charge these offers. The free-event cutoff does not change the prices or close paid registration; no discount deadline has been specified.
 
 ## Preview copy before the update opens
 
@@ -17,6 +17,8 @@ A new place to practice your market routine.
 The next CashOutAI chapter is taking shape: five bot rooms, a dedicated Stocks space, a $100 virtual practice balance you can reset, and community beneath the Nautilus.
 
 We’re designing it for a quick check on your phone and a full-screen session on the big screen. Study bot entries, practice a decision, and build a routine with the community.
+
+Short videos and live trading training are planned to help you read the Nautilus, practice with virtual funds, and review a session. Dates and frequency will be announced.
 
 Our free practice event will open as soon as the app update is ready, including before Friday. Confirm your email for temporary practice access; no card is needed. Everyone shares the same deadline: **Monday, November 30, 2026 at 11:59 p.m. Eastern**, even if they join later.
 
@@ -61,7 +63,7 @@ Event-only access ends at the shared deadline. Your account and saved practice h
 
 **How do I continue with paid access?**
 
-Choose **1 month — $99**, **6 months — $499**, or **Lifetime — $899** in **Membership**. Use your CashOutAI account email at Square checkout so the team can match your payment. The team reviews the receipt and approves access, then sends your welcome email. Each purchase is one-time, with no automatic renewal. Do not promise instant activation, a review turnaround, or free access beyond the event deadline while approval is pending.
+Choose a current offer in **Membership**: **1 month — $99 (regular $199)**, **6 months — $499 (regular $999)**, or **Lifetime — $899 (regular $2,499)**. Use your CashOutAI account email at Square checkout so the team can match your payment. The team reviews the receipt and approves access, then sends your welcome email. Each purchase is one-time, with no automatic renewal. Do not promise instant activation, a review turnaround, or free access beyond the event deadline while approval is pending.
 
 ### Practice clarification
 
@@ -77,10 +79,10 @@ The $100 balance is for simulation only and has no cash value. Practice entries 
 - At the cutoff, remove or replace the static free-event invitation with an event-ended message. Keep the account, recovery, and paid-membership paths available.
 - The free class and eBook remain available without an app membership.
 
-## Any separate Black Friday discount remains unapproved
+## Discount and training publication boundaries
 
-The approved event is free temporary practice access. It does not authorize a new sale price, coupon, discount percentage, or price deadline. Keep the existing $99 / $499 / $899 one-time options unless the owner provides separate terms.
+The existing $99 / $499 / $899 payment links already contain the owner-confirmed discounts from regular prices of $199 / $999 / $2,499. Use “Current offer” and the exact dollar savings. No additional coupon, automatic repricing, purchase deadline, or new eligibility restriction has been supplied. The free-event deadline must not be reused as an invented discount deadline.
 
-Before adding a discounted offer, record its exact price, eligible plans and members, start and end with timezone, any coupon restrictions, and the actual cancellation/refund and support terms. The free-event deadline must not be reused as an invented purchase deadline.
+The owner is considering weekly live training. Until dates and frequency are confirmed, use “planned” and “schedule to be announced.” Do not promise a weekly paid benefit or present unreleased videos as an available library. Suggested first recordings: reading a bot room, using the $100 practice balance, and reviewing a completed PAPER session.
 
 A registration button is not proof of payment. Do not label an app-root link “Claim the discount,” “Buy now,” or “Activate instantly.” No Square API integration or automatic webhook activation is required for the selected manual approval workflow.

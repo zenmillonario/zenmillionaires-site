@@ -12,7 +12,8 @@ This keeps ZenMillionaires’ existing black-and-gold identity, free class, free
 - Existing members receive a “Member sign in” action. New members receive an “Open CashOutAI” action. The upcoming-event instructions use the release's actual “Create a practice account” and “Use my existing account” buttons; returning members are directed to “Recover existing account” if needed.
 - Those two general entry actions use the verified **https://cashoutai.app/** root. The existing contact/footer app links use that same destination.
 - An upcoming free-event section explains email verification, no card requirement, a resettable $100 virtual balance, and the common deadline of Monday, November 30, 2026 at 11:59 p.m. Eastern. The event may open before Friday, as soon as the matching app update is ready. The page does not claim it has opened.
-- The owner-approved membership cards show **1 month — $99, 6 months — $499, and Lifetime — $899 (USD)**. Plan actions use the coordinated app routes `?join=monthly`, `?join=six_months`, and `?join=lifetime`. The matching app release must deploy before these marketing links are published.
+- The owner clarified that **1 month — $99, 6 months — $499, and Lifetime — $899 (USD)** are the current discounted prices already charged by the supplied Square links. Cards show regular/reference prices **$199 / $999 / $2,499** and savings **$100 / $500 / $1,600**. Plan actions retain `?join=monthly`, `?join=six_months`, and `?join=lifetime`. The matching app release must deploy before these marketing links are published.
+- Upcoming short videos and live trading training are described with dates and frequency to be announced. The owner is considering weekly sessions; no weekly delivery guarantee, completed video library, or scheduled class is advertised.
 - Plan entry starts with the member's app account. Each Square purchase is one-time with no automatic renewal. The page explains that the team reviews payment, approves access, and sends a welcome email. It asks members to use their account email at checkout and does not promise instant activation.
 - The free educational resources remain separate from app membership.
 - The page explains the phone / full-screen big-screen direction as part of the upcoming release.
@@ -66,7 +67,7 @@ git apply /absolute/path/to/changes.patch
 
 If main has changed, review the current differences before applying. Do not overwrite unrelated newer content. The draft directory also contains the full page and existing assets for inspection.
 
-A separate [Black Friday copy document](docs/black-friday-copy-DRAFT.md) is **an internal draft only**. The fixed free event and its cutoff are approved, along with the base one-time membership prices. No separate sale price, discount, or coupon is approved. The document is not linked from the page, and no announcement has been sent or scheduled by this work.
+A separate [Black Friday copy document](docs/black-friday-copy-DRAFT.md) is **an internal draft only**. The fixed free event and its cutoff are approved. The owner clarified that the supplied one-time membership links already charge discounted prices. No coupon, discount deadline, or automatic price reset has been specified. The document is not linked from the page, and no announcement has been sent or scheduled by this work.
 
 ## Public messaging before release
 
@@ -84,29 +85,23 @@ The event opens as soon as the coordinated app release is ready; there is no Fri
 
 New participants register once and explicitly confirm their email before signing in normally. Existing members use the same account and registered email; password recovery is a separate step when needed. Eligible event access does not need individual administrator approval, a payment, or a card. Accounts and practice history remain after the cutoff, and independent existing memberships retain their original terms.
 
-The event deadline ends event-only access; it does not expire the $99 / $499 / $899 base prices or close paid registration. Paid purchases still require the owner's Square receipt review. Do not promise an approval time or extra event access while a payment awaits review.
+The event deadline ends event-only access; it does not expire the $99 / $499 / $899 discounted prices or close paid registration. Paid purchases still require the owner's Square receipt review. Do not promise an approval time or extra event access while a payment awaits review.
 
 The event entry uses **https://cashoutai.app/**. Source review found no public event-signup query: the app reads `event_token` only for emailed confirmation, while `join` accepts the three paid plan IDs. Do not invent `?join=event`, `?trial=1`, or a verification token for a marketing link. The existing paid plan links remain unchanged. Source references are the app release's `frontend/src/practiceEvent/eventModel.mjs`, `frontend/src/billing/billingModel.mjs`, and `frontend/src/App.js`.
 
 Keep the event framed as upcoming until the matching app is deployed, checked, and the event is enabled. When it opens, update only the readiness wording; keep the fixed deadline. At the cutoff, remove or replace the invitation with an event-ended message and preserve the existing-account and paid-membership paths. The current page is static and does not infer live event status.
 
-## Any separate sale still needs approved terms
+## Current discounted offers
 
-The free event and base memberships are already approved. A separate discounted offer needs these additional business decisions before it is published:
+| Membership | Regular/reference USD price | Current one-time price | Savings |
+| --- | ---: | ---: | ---: |
+| 1 month | $199 | $99 | $100 |
+| 6 months | $999 | $499 | $500 |
+| Lifetime | $2,499 | $899 | $1,600 |
 
-| Input | Required decision |
-| --- | --- |
-| Offer | Base options are 1 month, 6 months, or Lifetime; confirm eligibility for any separate promotion |
-| Price | Base USD prices are $99, $499, and $899; any promotional amount and taxes / fees presentation still need confirmation |
-| Discount | Separately approved percentage or fixed amount on a one-time purchase; exact duration |
-| Timing | The free-event cutoff is approved above; any separate discount needs its own start and end with timezone |
-| Eligibility | New members, existing members, reactivations, or a defined combination |
-| Renewal | Confirmed one-time purchases with no automatic renewal; another fixed term needs a new purchase |
-| Existing members | Upgrade, credit, extension, duplicate-purchase and plan-change policy |
-| Coupon | Approved code, redemption limits, whether stacking is permitted |
-| Customer terms | Cancellation/refund policy, support contact, membership conditions |
-| Data | Which quote feed and permissions are included, with any delay or venue limitation |
-| Release | Which app features are actually available on the purchase date |
+The owner supplied both sets of prices and confirmed that the existing Square links already charge the current offers. The page uses dollar savings, not a rounded percentage. The free event's deadline is an access deadline; it is not an invented sale deadline. The static page and app catalog do not automatically restore regular prices at the cutoff.
+
+If a timed offer is later requested, record the precise end time/timezone and how completed Square payments retain their offer during manual review. Confirm any additional eligibility, coupon, credit, refund, or cancellation terms before advertising them. Existing memberships keep their original terms. Another fixed term requires a new purchase.
 
 ## Square implementation and release requirements
 
@@ -117,12 +112,13 @@ The selected processor, one-time terms, and manual approval process are recorded
 3. Verify the owner can match a paid Square record to the existing member and approve the actual purchased plan with its receipt/reference. A one- or six-month term starts at approval or extends a later current paid-through date; Lifetime has no expiry.
 4. Exercise pending, rejected review, repeated receipt, conflicting assignment, renewal, and expired-access cases in an isolated database. Preserve independent legacy/lifetime access. Refunds and corrections remain owner-reviewed; do not invent an automatic revocation policy.
 5. Verify the existing welcome-email service using a non-production recipient during the deployment rehearsal. A repeated approval must not send twice; failed/unavailable email must leave the valid membership approved. Service acceptance is not proof of inbox delivery. No email is sent by this website work.
-6. Keep upcoming-feature wording until the redesign is deployed and the event is enabled. Use only the approved fixed free-event deadline; no separate sale badge, countdown, discount, or instant paid-activation promise is authorized.
+6. Keep upcoming-feature wording until the redesign is deployed and the event is enabled. Display only the owner-confirmed regular and discounted prices. Use the fixed deadline for free event access; do not add a price countdown or instant paid-activation promise.
 
 The app’s single-active-session policy should continue to apply to purchased memberships. This policy and exact signup behavior belong in the product flow, not as a substitute for payment confirmation.
 
 ## Verification
 
+- The corrected-offer/training update passed structural checks: all 15 internal anchors, 16 local resources, heading labels, and seven existing app links resolve; the three regular/offer/savings pairs match the owner's supplied prices. JavaScript syntax passed. New copy remains upcoming, and no training frequency or discount deadline is invented. The extra regular-price/savings text and training note have not received a fresh browser layout review.
 - Exact hashes confirmed for the complete original 20-file baseline.
 - The earlier structural review found no duplicate IDs and confirmed the internal anchors, local assets, and JavaScript syntax. The seven app destinations include the exact three coordinated plan-entry routes and four root app links. All 13 original images remained byte-identical to the baseline.
 - Before the event-copy update, the one-time/manual-approval copy passed unpublished visual review at 960-pixel desktop and 390-pixel mobile iframe widths (usable content widths of 945 and 375 pixels). The three price cards, manual-review explanation, same-email instruction, and then-current existing/new-account entry copy fit both layouts without document-level horizontal overflow. The exact three `?join` destinations remain unchanged.
