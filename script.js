@@ -53,3 +53,24 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 } else {
   revealItems.forEach((item) => item.classList.add('visible'));
 }
+
+// The website is informational. The app's server remains the access authority.
+const eventCutoff = Date.parse('2026-12-01T05:00:00Z');
+const eventStart = Date.parse('2026-11-27T08:50:44Z');
+function updateEventInvitation() {
+  const now = Date.now();
+  const open = now >= eventStart && now < eventCutoff;
+  const ended = now >= eventCutoff;
+  document.querySelectorAll('[data-event-title]').forEach(el => {
+    el.textContent = ended ? 'CashOutAI · Practice event ended' : open ? 'Free Event Access · Cyber Monday' : 'CashOutAI · Practice event';
+  });
+  document.querySelectorAll('[data-event-copy]').forEach(el => {
+    el.textContent = ended ? 'The free event has ended. Your account stays saved; sign in to see membership options.' : open ? 'Free through Monday, November 30, 2026 at 11:59 p.m. Eastern. No card required. Check current availability in the app.' : 'Check the app for event availability.';
+  });
+  document.querySelectorAll('[data-event-button]').forEach(el => {
+    el.textContent = ended ? 'Open CashOutAI' : open ? 'Free Event Access' : 'Check event access';
+  });
+}
+updateEventInvitation();
+window.addEventListener('focus', updateEventInvitation);
+window.setInterval(updateEventInvitation, 30000);
