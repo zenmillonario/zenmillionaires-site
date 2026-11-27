@@ -42,17 +42,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="ZenMillionaires home">
       <span class="brand-mark">ZM</span>
       <span class="brand-text">ZenMillionaires</span>
     </a>
 
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="main-nav" aria-label="Main navigation">
+    <nav id="main-navigation" class="main-nav" aria-label="Main navigation">
+      <a class="app-nav-link" href="#app">CashOutAI</a>
       <a href="#start">Start Here</a>
       <a href="#class">Free Class</a>
       <a href="#ebook">Free eBook</a>
@@ -64,7 +66,13 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
+    <aside id="event-banner" class="event-banner" aria-label="CashOutAI event">
+      <div class="container event-banner-inner">
+        <div><strong data-event-title>CashOutAI · Cyber Monday practice event</strong><span data-event-copy> Event access through November 30, 2026, 11:59 p.m. Eastern. Check availability in the app.</span></div>
+        <a class="btn btn-primary" data-event-button href="https://cashoutai.app/">Check event access</a>
+      </div>
+    </aside>
     <section id="home" class="hero section">
       <div class="hero-bg"></div>
       <div class="container hero-grid">
@@ -81,12 +89,192 @@
             <a class="btn btn-primary" href="https://youtu.be/QE5QzEIZNV4?si=PZuiB79DjkMw1JbT" target="_blank" rel="noopener">Watch Free Class</a>
             <a class="btn btn-secondary" href="https://www.dropbox.com/scl/fo/5jlmeqv04ypduhrswylbz/AJ4El1LCYZRb_Wb5JkLIlLM?rlkey=5awrt4itdljdrpgrs2ec99zrf&e=1&dl=0" target="_blank" rel="noopener">Download Free eBook</a>
           </div>
+          <a class="hero-app-link" href="#app">Explore CashOutAI · 15-minute contract rooms <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-card reveal delay-1">
           <img src="images/hero-main.png" alt="Ariam Muiño at a tennis stadium with open arms" />
           <div class="hero-card-caption">
             <strong>Make Your Money Work for You.</strong>
             <span>Freedom, vision, and independence through discipline.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="app" class="section app-section" aria-labelledby="app-heading">
+      <div class="container">
+        <div class="app-intro">
+          <div class="app-copy reveal">
+            <p class="eyebrow">CashOutAI · Now available</p>
+            <h2 id="app-heading">A place to observe.<br>A space to practice.</h2>
+            <p class="app-lead">The 15-minute market observation and practice cockpit.</p>
+            <p>
+              Watch five PAPER bot rooms, study short-duration crypto outcome contracts, and use
+              a shared virtual practice balance. CashOutAI brings Nautilus, Looking Glass,
+              Stocks and community together in one focused workspace.
+            </p>
+            <p class="app-release-note">
+              The 15-minute rooms are educational simulations. Feed availability and freshness
+              vary; the app labels delayed data. No real-money orders are placed by this workspace.
+              Neither bot results nor scenario paths guarantee future outcomes.
+            </p>
+            <div class="button-row"><a class="btn btn-primary" href="https://cashoutai.app/" data-event-button>Check event access</a><a class="btn btn-secondary" href="#app-access">Member access</a></div>
+          </div>
+
+          <figure class="app-preview reveal delay-1">
+            <figcaption class="app-preview-caption">
+              <span class="app-preview-brand">CashOutAI</span>
+              <span class="app-preview-status">15-minute PAPER cockpit</span>
+            </figcaption>
+            <ul class="app-room-labels" aria-label="Available market rooms">
+              <li>BTC</li><li>ETH</li><li>SOL</li><li>XRP</li><li>DOGE</li><li>Stocks</li>
+            </ul>
+            <div class="app-preview-main">
+              <div class="app-nautilus-visual">
+                <span class="app-visual-label">The Nautilus</span>
+                <svg viewBox="0 0 340 230" aria-hidden="true" focusable="false">
+                  <defs><linearGradient id="cockpit-bg" x2="0" y2="1"><stop stop-color="#123b4b"/><stop offset="1" stop-color="#071924"/></linearGradient></defs>
+                  <rect width="340" height="230" rx="8" fill="url(#cockpit-bg)"/>
+                  <g stroke="#76c7d9" opacity=".16" stroke-width="1">
+                    <path d="M12 44H328M12 82H328M12 120H328M12 158H328M12 196H328M40 28V207M91 28V207M142 28V207M193 28V207M244 28V207M295 28V207"/>
+                  </g>
+                  <g font-family="Inter, sans-serif" font-size="9" fill="#b9d6dc"><text x="12" y="17">BTC / USD · ILLUSTRATION</text><text x="257" y="17">15 MIN</text><text x="12" y="220">HISTORY</text><text x="245" y="220">SCENARIOS</text></g>
+                  <path d="M12 144H328" stroke="#ffc36d" stroke-dasharray="5 5" opacity=".8"/>
+                  <text x="13" y="139" font-size="8" fill="#ffc36d">TARGET</text>
+                  <path d="M12 179C44 173 62 121 87 128S111 167 139 143S170 87 194 102S213 126 235 99" fill="none" stroke="#35dcea" stroke-width="2.7"/>
+                  <path d="M12 166C51 160 79 148 107 147S164 132 194 125S217 117 235 113" fill="none" stroke="#f0b96b" stroke-width="2.3"/>
+                  <path d="M235 32V207" stroke="#d7f3f4" stroke-dasharray="3 5" opacity=".5"/>
+                  <g fill="none" stroke-width="1.6" opacity=".75">
+                    <path d="M235 99C265 59 282 75 328 45" stroke="#63eed1"/>
+                    <path d="M235 99C271 123 297 93 328 111" stroke="#edcf6b"/>
+                    <path d="M235 99C261 136 295 175 328 189" stroke="#ee979e"/>
+                    <path d="M235 99C270 77 294 144 328 139" stroke="#79bafa"/>
+                  </g>
+                  <circle cx="235" cy="99" r="4" fill="#ffdf78"/>
+                  <text x="249" y="35" fill="#d7e9ee" font-size="8">LOOKING GLASS</text>
+                </svg>
+                <span class="app-visual-footnote">Observe · Study · Practice</span>
+              </div>
+              <div class="app-practice-visual">
+                <span class="app-visual-label">Practice balance</span>
+                <strong>$100</strong>
+                <span>Virtual funds</span>
+                <p>Practice a decision.<br>Reset and try again.</p>
+              </div>
+            </div>
+            <div class="app-chat-visual">
+              <span class="app-chat-dot" aria-hidden="true"></span>
+              <span>Room chat beneath your Nautilus</span>
+            </div>
+            <p class="app-preview-footnote">Conceptual chart · Not a screenshot, live quote or prediction</p>
+          </figure>
+        </div>
+
+        <div class="app-features reveal" aria-label="CashOutAI features">
+          <article>
+            <span class="app-feature-number" aria-hidden="true">01</span>
+            <h3>15-minute contracts</h3>
+            <p>BTC, ETH, SOL, XRP and DOGE. Study YES/NO outcome contracts, bid/ask quotes, a price target and a countdown to the contract close. Practice with virtual money only.</p>
+          </article>
+          <article>
+            <span class="app-feature-number" aria-hidden="true">02</span>
+            <h3>The Nautilus</h3>
+            <p>A chart-first cockpit with the underlying price, 9 and 30 EMAs, bot positions, recorded entries and returns. Switch assets, examine the chart and expand into TV or full-screen mode.</p>
+          </article>
+          <article>
+            <span class="app-feature-number" aria-hidden="true">03</span>
+            <h3>Looking Glass</h3>
+            <p>Compare historical market observations with conditional scenario paths. They change as new data arrives; they are not reliable forecasts or a promise of profit.</p>
+          </article>
+          <article>
+            <span class="app-feature-number" aria-hidden="true">04</span>
+            <h3>$100 virtual practice</h3>
+            <p>Learn with one resettable simulated balance across the five bots. Review practice results and compare your decisions with recorded PAPER trades. Funds have no cash value.</p>
+          </article>
+          <article>
+            <span class="app-feature-number" aria-hidden="true">05</span>
+            <h3>Stocks and alerts</h3>
+            <p>Explore tickers, charts and saved alerts in the Stocks workspace. Device notifications require supported devices and opt-in; delivery can vary.</p>
+          </article>
+          <article>
+            <span class="app-feature-number" aria-hidden="true">06</span>
+            <h3>Learn in community</h3>
+            <p>Discuss observations in the bot rooms, review your practice and keep your member profile and progress in one account.</p>
+          </article>
+        </div>
+
+        <div class="app-training-note reveal">
+          <h3>Coming next: learn the routine.</h3>
+          <p>Short videos and live trading training are planned to help you read the Nautilus, practice with virtual funds, and review a session. Dates and frequency will be announced.</p>
+        </div>
+
+        <div class="app-screen-note reveal">
+          <svg viewBox="0 0 36 28" aria-hidden="true" focusable="false"><rect x="1" y="1" width="26" height="18" rx="2"/><path d="M10 24h8M14 19v5"/><rect x="25" y="10" width="10" height="17" rx="2"/><path d="M28 23h4"/></svg>
+          <p>Designed for a quick check on your phone and an immersive full-screen bot room on a big screen.</p>
+        </div>
+
+        <section id="app-practice-event" class="app-membership event-spotlight reveal" aria-labelledby="practice-event-heading">
+          <div class="app-membership-heading">
+            <p class="eyebrow" data-event-title>Cyber Monday practice event</p>
+            <h3 id="practice-event-heading">Explore with $100 in virtual funds.</h3>
+            <p data-event-copy>Check the app for free event availability. The shared deadline is November 30, 2026 at 11:59 p.m. Eastern.</p>
+          </div>
+          <p class="membership-note">Create an account with a username, email and password, then confirm your email and sign in. No credit card or manual approval is needed for eligible free event access. Your account and saved history remain afterward. Existing paid memberships keep their terms. The $100 is a simulation balance with no cash value.</p>
+          <a class="btn btn-primary" data-event-button href="https://cashoutai.app/">Check event access</a>
+        </section>
+
+        <section id="app-membership" class="app-membership reveal" aria-labelledby="membership-heading">
+          <div class="app-membership-heading">
+            <p class="eyebrow">CashOutAI membership · Current offers</p>
+            <h3 id="membership-heading">Choose your time to learn.</h3>
+            <p>For paid access, start with your CashOutAI account, then choose a one-time payment. No automatic renewal. Paid memberships remain available after the free event ends.</p>
+          </div>
+          <div class="membership-plans">
+            <article class="membership-plan">
+              <h4>1 month</h4>
+              <p class="membership-regular">Regular price <s>$199</s> USD</p>
+              <p class="membership-price">$99 <span>USD</span></p>
+              <p class="membership-saving">Save $100 with the current offer</p>
+              <p class="membership-term">Pay once for one month of access.</p>
+              <a class="btn btn-secondary" href="https://cashoutai.app/?join=monthly" target="_blank" rel="noopener">Choose 1 month <span class="visually-hidden">(opens a new tab)</span></a>
+            </article>
+            <article class="membership-plan">
+              <h4>6 months</h4>
+              <p class="membership-regular">Regular price <s>$999</s> USD</p>
+              <p class="membership-price">$499 <span>USD</span></p>
+              <p class="membership-saving">Save $500 with the current offer</p>
+              <p class="membership-term">Pay once for six months of access.</p>
+              <a class="btn btn-secondary" href="https://cashoutai.app/?join=six_months" target="_blank" rel="noopener">Choose 6 months <span class="visually-hidden">(opens a new tab)</span></a>
+            </article>
+            <article class="membership-plan">
+              <h4>Lifetime</h4>
+              <p class="membership-regular">Regular price <s>$2,499</s> USD</p>
+              <p class="membership-price">$899 <span>USD</span></p>
+              <p class="membership-saving">Save $1,600 with the current offer</p>
+              <p class="membership-term">One payment for lifetime access.</p>
+              <a class="btn btn-secondary" href="https://cashoutai.app/?join=lifetime" target="_blank" rel="noopener">Choose Lifetime <span class="visually-hidden">(opens a new tab)</span></a>
+            </article>
+          </div>
+          <p class="membership-note">Pay securely through Square. Our team reviews your payment and approves access, then sends a welcome email. Please use your CashOutAI account email at checkout. The illustration above explains the available PAPER practice workspace.</p>
+        </section>
+
+        <div id="app-access" class="app-access reveal">
+          <div class="app-access-heading">
+            <p class="eyebrow">Your next step</p>
+            <h3>Your account comes first.</h3>
+            <p>The free class and eBook remain available to everyone, independently of CashOutAI membership.</p>
+          </div>
+          <div class="app-entry">
+            <h4>Already have an account?</h4>
+            <p>Sign in with your existing CashOutAI account. You do not need to register again; your membership keeps its existing terms.</p>
+            <p>While the event is open, choose <strong>Use my existing account</strong> to join the event. If you cannot sign in, choose <strong>Recover existing account</strong> on the updated sign-in screen and use your registered email address.</p>
+            <a class="btn btn-primary" href="https://cashoutai.app/" target="_blank" rel="noopener">Member sign in <span class="visually-hidden">(opens a new tab)</span></a>
+          </div>
+          <div class="app-entry">
+            <h4>New to CashOutAI?</h4>
+            <p>While the event is open, choose <strong>Free Event Access</strong> in the app. Open the newest verification email, confirm your email, then sign in with your username and password. No card is needed for free event access.</p>
+            <p>For paid access, choose a membership above. Our team reviews your Square payment and approves the purchased term on the same account.</p>
+            <a class="btn btn-secondary" href="https://cashoutai.app/" target="_blank" rel="noopener">Open CashOutAI <span class="visually-hidden">(opens a new tab)</span></a>
           </div>
         </div>
       </div>
@@ -170,7 +358,7 @@
           <article class="resource-card reveal delay-2"><h3>Risk Management</h3><p>Protect your capital before thinking about profit.</p></article>
           <article class="resource-card reveal"><h3>Trading Psychology</h3><p>Control emotion, avoid fear, and stop gambling behavior.</p></article>
           <article class="resource-card reveal delay-1"><h3>AI Tools</h3><p>Use technology as a guide, not as a replacement for wisdom.</p></article>
-          <article class="resource-card reveal delay-2"><h3>CashOutAi App</h3><p>The companion app for alerts, watchlists, and structured observation.</p><a href="https://www.cashoutai.app" target="_blank" rel="noopener">Open App</a></article>
+          <article class="resource-card reveal delay-2"><h3>CashOutAI App</h3><p>Explore 15-minute PAPER contracts, Nautilus, Looking Glass, Stocks and virtual practice.</p><a href="#app">Explore CashOutAI</a></article>
         </div>
         <div class="method-strip reveal">
           <img src="images/fibonacci-gain.png" alt="Fibonacci triangle gain example" />
@@ -255,7 +443,7 @@
             <p class="eyebrow">Currently developing</p>
             <h3>ARGUS AI</h3>
             <p>
-              Astral Regenerative Graphical Understanding Sentinels — CashOutAi. A new Astro AI version for profitable investments,
+              Astral Regenerative Graphical Understanding Sentinels — CashOutAi. A market education and research tool,
               modeled after Fibonacci orbital mechanics and Nikola Tesla's 3, 6, 9 numbers.
             </p>
             <p>
@@ -323,7 +511,7 @@
         </p>
         <div class="button-row centered">
           <a class="btn btn-primary" href="mailto:ZenMillonario@Gmail.com">ZenMillonario@Gmail.com</a>
-          <a class="btn btn-secondary" href="https://www.cashoutai.app" target="_blank" rel="noopener">Open CashOutAi App</a>
+          <a class="btn btn-secondary" href="https://cashoutai.app/" target="_blank" rel="noopener">Open CashOutAi App</a>
         </div>
       </div>
     </section>
@@ -338,7 +526,7 @@
       <div class="footer-links">
         <a href="https://youtu.be/QE5QzEIZNV4?si=PZuiB79DjkMw1JbT" target="_blank" rel="noopener">Free Class</a>
         <a href="https://www.dropbox.com/scl/fo/5jlmeqv04ypduhrswylbz/AJ4El1LCYZRb_Wb5JkLIlLM?rlkey=5awrt4itdljdrpgrs2ec99zrf&e=1&dl=0" target="_blank" rel="noopener">Free eBook</a>
-        <a href="https://www.cashoutai.app" target="_blank" rel="noopener">CashOutAi</a>
+        <a href="https://cashoutai.app/" target="_blank" rel="noopener">CashOutAi</a>
       </div>
     </div>
   </footer>
